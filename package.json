@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "bootstrap": "^5.2.2",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "html-react-parser": "^3.0.4",
     "jotai": "^1.8.4",
