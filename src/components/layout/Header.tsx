@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Logo } from 'src/components/atoms/images';
-import { HamburgerButton } from 'src/components/atoms/button';
+import { HamburgerButton, ToggleButton } from 'src/components/atoms/button';
 import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
 import Image from 'next/future/image';
 import Link from 'next/link';
@@ -11,12 +11,12 @@ const Header: FC = () => {
   return (
     <header className={styles.header}>
       {/* <Logo /> */}
-      {tablet && (
+      {/* {tablet && (
         <div className={styles.header__hamburger}>
           <HamburgerButton />
         </div>
-      )}
-
+      )} */}
+      <ToggleButton />
       {/* <!-- Header Menu --> */}
       <ul className="nav user-menu">
         {/* <!-- Search --> */}
