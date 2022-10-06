@@ -1,0 +1,19 @@
+@import '../variables.scss';
+
+.header {
+  background: #fff;
+  border-bottom: 0.1rem solid transparent;
+  height: 6rem;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 0px 15px 0 rgb(0 0 0 / 5%);
+  &__hamburger {
+    display: grid;
+    place-items: center;
+    width: 6rem;
+    height: 6rem;
+  }
+}

@@ -1,0 +1,67 @@
+@import '../../variables.scss';
+
+.hamburger {
+  position: relative;
+  height: 2.8rem;
+  width: 3rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+
+  input[type='checkbox'] {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: 2.8rem;
+    width: 3rem;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  div {
+    position: absolute;
+    left: 0;
+    height: 0.3rem;
+    width: 100%;
+    background-color: $__primarycolor;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in-out;
+  }
+
+  div::before,
+  div::after {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    width: 70%;
+    height: inherit;
+    background-color: inherit;
+    z-index: 2;
+  }
+
+  div::after {
+    top: 1rem;
+    right: 0;
+  }
+  div::before {
+    left: 0;
+  }
+
+  input[type='checkbox']:checked + div::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: rotate(270deg);
+  }
+
+  input[type='checkbox']:checked + div {
+    transform: rotate(135deg);
+  }
+
+  input[type='checkbox']:checked + div::after {
+    opacity: 0;
+  }
+  
+}
