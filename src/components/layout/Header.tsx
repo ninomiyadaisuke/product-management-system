@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Logo } from 'src/components/atoms/images';
 import { HamburgerButton, ToggleButton } from 'src/components/atoms/button';
+import { NavSearch } from 'src/components/atoms/input';
 import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
 import Image from 'next/future/image';
 import Link from 'next/link';
@@ -16,30 +17,13 @@ const Header: FC = () => {
           <HamburgerButton />
         </div>
       )} */}
-      <ToggleButton />
+      {/* <ToggleButton /> */}
       {/* <!-- Header Menu --> */}
       <ul className="nav user-menu">
         {/* <!-- Search --> */}
-        {/* <li className="nav-item">
-          <div className="top-nav-search">
-            <a href="javascript:void(0);" className="responsive-search">
-              <i className="fa fa-search"></i>
-            </a>
-            <form action="#">
-              <div className="searchinputs">
-                <input type="text" placeholder="Search Here ..." />
-                <div className="search-addon">
-                  <span>
-                    <Image src="/icons/closes.svg" alt="img" height={40} width={40} />
-                  </span>
-                </div>
-              </div>
-              <a className="btn" id="searchdiv">
-                <Image src="/icons/search.svg" alt="img" height={40} width={40} />
-              </a>
-            </form>
-          </div>
-        </li> */}
+        <li className="nav-item">
+          <NavSearch />
+        </li>
         {/* <!-- /Search --> */}
 
         {/* <!-- Notifications --> */}

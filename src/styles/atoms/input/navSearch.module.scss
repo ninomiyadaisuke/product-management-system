@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.search {
+  position: relative;
+  input {
+    width: 230px;
+    height: 35px;
+    border: 1px solid rgba(145, 158, 171, 0.32);
+    @include margin-padding(null, 0 40px 0 8px);
+    @include rounded(5px);
+  }
+  &__input,
+  &__input_show {
+    @include transition(all 0.2s ease);
+    @include position($__absolute, -80px, null, null, null);
+  }
+  &__input_show {
+    @include position($__absolute, 0px, null, null, null);
+  }
+  span {
+    display: block;
+    background-color: $__primarycolor;
+    width: 27px;
+    height: 27px;
+    z-index: 9;
+    cursor: pointer;
+    @extend %display-flex;
+    @extend %justify-content-center;
+    @extend %align-items-center;
+    @include rounded(5px);
+    @include position($__absolute, 4px, 4px, null, null);
+    img {
+      @include position($__absolute, 7px, 8px, null, null);
+    }
+  }
+  &__icon {
+    @include position($__absolute, 8px, null, null, 200px);
+    cursor: pointer;
+  }
+}

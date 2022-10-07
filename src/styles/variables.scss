@@ -51,6 +51,75 @@ $__dark__grays: #B9B9C3;
 $__light__battle__garys: #9e9e9e;
 $__graybackblue: #38414A;
 
+/*** default values ***/
+$__full__width:100%;
+$__half__width:50%;
+$__full_height_window:100vh;
+$__full__height:100%;
+$__half__height:50%;
+$__left:left;
+$__right:right;
+$__center:center;
+$__block:block;
+$__inline__block:inline-block;
+$__inline:inline;
+$__table:table;
+$__flex:flex;
+$__stretch:stretch;
+$__column:column;
+$__webkit__flex:-webkit-flex;
+$__none:none;
+$__absolute:absolute;
+$__relative:relative;
+$__static:static;
+$__fixed:fixed;
+$__unset:unset;
+$__uppercase:uppercase;
+$__lowercase:lowercase;
+$__capitalize:capitalize;
+$__inherit:inherit;
+$__initial:initial;
+$__auto:auto;
+$__normal:normal;
+$__margin__auto:0 auto;
+$__null:null;
+$__bottom:bottom;
+$__middle:middle;
+$__top:top;
+$__transparent:transparent;
+$__no_repeat:no-repeat;
+$__cover:cover;
+$__pointer:pointer;
+$__not-allowed:not-allowed;
+$__hidden:hidden;
+$__show:show;
+$__visible:visible;
+$__both:both;
+$__ellipsis:ellipsis;
+$__nowrap:nowrap;
+$__inline__flex:inline-flex;
+$__underline:underline;
+
+/***** custom values *****/
+$__grid__padding__left:15px;
+$__grid__padding__right:15px;
+$__container__width:1140px;
+
+
+/***** Grid Values *****/
+$__col__1:8.33333333%;
+$__col__2:16.66666667%;
+$__col__3:25%;
+$__col__4:33.33333333%;
+$__col__5:41.66666667%;
+$__col__6:50%;
+$__col__7:58.33333333%;
+$__col__8:66.66666667%;
+$__col__9:75%;
+$__col__10:83.33333333%;
+$__col__11:91.66666667%;
+$__col__12:100%;
+
 $breakpoints: (
   'xxs': 'screen and (min-width: 440px)',
   'xs': 'screen and (min-width: 560px)',
@@ -59,6 +128,10 @@ $breakpoints: (
   'lg': 'screen and (min-width: 991px)',
   'xl': 'screen and (min-width: 1440px)',
 ) !default;
+
+
+/////////////// mixin //////////////
+
 
 // 初期値はlg(tablet screen size)
 @mixin mq($breakpoint: lg) {
@@ -72,4 +145,49 @@ $breakpoints: (
   &::placeholder {
     color: $color !important;
   }
+}
+
+
+@mixin position($__position_value,$__top_value,$__right_value,$__bottom_value,$__left_value){
+  position:$__position_value;
+  top:$__top_value;
+  right:$__right_value;
+  bottom:$__bottom_value;
+  left:$__left_value;
+}
+
+@mixin transition($__property) {
+  -webkit-transition: $__property;
+  -ms-transition: $__property;
+  transition: $__property;
+}
+
+@mixin rounded($unit) {
+  border-radius: $unit;
+}
+
+@mixin margin-padding($__margin, $__padding) {
+  margin: $__margin;
+  padding:$__padding;
+}
+
+
+/////////////// extends //////////////
+
+%display-flex{  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+%justify-content-center{  
+  justify-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+}
+
+%align-items-center{  
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
 }
