@@ -11,7 +11,7 @@ const Header: FC = () => {
   const { tablet } = useBreakPoint();
   return (
     <header className={styles.header}>
-      {/* <Logo /> */}
+      <Logo size="l" />
       {/* {tablet && (
         <div className={styles.header__hamburger}>
           <HamburgerButton />
@@ -21,9 +21,9 @@ const Header: FC = () => {
       {/* <!-- Header Menu --> */}
       <ul className="nav user-menu">
         {/* <!-- Search --> */}
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavSearch />
-        </li>
+        </li> */}
         {/* <!-- /Search --> */}
 
         {/* <!-- Notifications --> */}

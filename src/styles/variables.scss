@@ -170,24 +170,3 @@ $breakpoints: (
   margin: $__margin;
   padding:$__padding;
 }
-
-
-/////////////// extends //////////////
-
-%display-flex{  
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-%justify-content-center{  
-  justify-content: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-}
-
-%align-items-center{  
-  align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-}
