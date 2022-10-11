@@ -1,17 +1,13 @@
 import { FC, useCallback, useState } from 'react';
 import { Logo } from 'src/components/atoms/images';
 import { HamburgerButton, ToggleButton } from 'src/components/atoms/button';
-import { useBooleanChangeEvent } from 'src/components/hooks/customHooks';
 import { NavSearch } from 'src/components/atoms/input';
 import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
-import Image from 'next/future/image';
-import Link from 'next/link';
 import styles from 'src/styles/layout/header.module.scss';
 
 const Header: FC = () => {
   const [toggle, setToggle] = useState(true);
   const [active, setActive] = useState(true);
-  const { tablet } = useBreakPoint();
 
   const handleClick = useCallback(() => {
     setToggle((prev) => !prev);
