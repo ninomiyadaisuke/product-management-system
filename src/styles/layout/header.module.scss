@@ -1,8 +1,9 @@
 @import '../variables.scss';
 
 .header {
-  display: block;
-  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  background: $__white;
   border-bottom: 0.1rem solid transparent;
   height: 6rem;
   z-index: 999;
@@ -11,24 +12,53 @@
   right: 0;
   left: 0;
   box-shadow: 0 0px 15px 0 rgb(0 0 0 / 5%);
+  
+  &__ellipsis {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    z-index: 10;
+    i {
+      color: $__primarycolor;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
   &__logo {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 60px;
-    padding: 0 20px;
+    padding: 0 2rem;
     z-index: 1;
     border-right: 1px solid $__light-goose;
     transition: all 0.2s ease;
   }
   &__hamburger {
     position: absolute;
-    top: 15px;
-    left: 20px;
+    top: 1.5rem;
+    left: 2rem;
   }
 
+  @include mq('xs') {
+    &__ellipsis {
+      display: none;
+    }
+
+  }
   @include mq('lg') {
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__item {
+      padding-right: 30px;
+    }
+    &__hamburger {
+      display: none;
+    }
     &__logo,
     &__logo_small {
       display: flex;

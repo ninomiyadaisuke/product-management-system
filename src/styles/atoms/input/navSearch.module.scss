@@ -3,7 +3,7 @@
 .search {
   display: none;
   @include mq('lg') {
-    display: block;
+    display: flex;
     position: relative;
     input {
       width: 230px;
@@ -15,10 +15,13 @@
     &__input,
     &__input_show {
       @include transition(all 0.2s ease);
-      @include position($__absolute, -80px, null, null, null);
+      position: absolute;
+      top: -80px;
+      right: 0;
     }
     &__input_show {
-      @include position($__absolute, 0px, null, null, null);
+      position: absolute;
+      top: -3px;
     }
     span {
       display: block;
@@ -30,10 +33,11 @@
       display: grid;
       place-items: center;
       @include rounded(5px);
-      @include position($__absolute, 4px, 4px, null, null);
+      position: absolute;
+      top: 4px;
+      right: 4px;
     }
     &__icon {
-      @include position($__absolute, 8px, null, null, 200px);
       cursor: pointer;
     }
   }
