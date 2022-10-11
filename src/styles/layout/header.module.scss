@@ -1,6 +1,7 @@
 @import '../variables.scss';
 
 .header {
+  display: block;
   background: #fff;
   border-bottom: 0.1rem solid transparent;
   height: 6rem;
@@ -10,10 +11,37 @@
   right: 0;
   left: 0;
   box-shadow: 0 0px 15px 0 rgb(0 0 0 / 5%);
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 60px;
+    padding: 0 20px;
+    z-index: 1;
+    border-right: 1px solid $__light-goose;
+    transition: all 0.2s ease;
+  }
   &__hamburger {
-    display: grid;
-    place-items: center;
-    width: 6rem;
-    height: 6rem;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+  }
+
+  @include mq('lg') {
+    &__logo,
+    &__logo_small {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 260px;
+      height: 60px;
+      padding: 0 20px;
+      z-index: 1;
+      border-right: 1px solid $__light-goose;
+    }
+    &__logo_small {
+      width: 80px;
+    }
   }
 }

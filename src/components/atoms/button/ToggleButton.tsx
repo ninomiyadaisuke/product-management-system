@@ -2,14 +2,21 @@ import { FC, useState } from 'react';
 
 import styles from 'src/styles/atoms/button/toggle.module.scss';
 
-const ToggleButton: FC = () => {
-  const [toggle, setToggle] = useState(true);
+type Props = {
+  onClick: () => void;
+  toggle: boolean;
+  active: boolean;
+};
 
-  const handleClick = () => {
-    setToggle(!toggle);
-  };
+const ToggleButton: FC<Props> = (props) => {
+  const { onClick, toggle, active } = props;
 
-  return <a onClick={handleClick} className={toggle ? styles.active : styles.button}></a>;
+  const className = (() => {
+    if (toggle) return `${styles.active}`;
+    if (active && !toggle) return `${styles.button}`;
+  })();
+
+  return <a onClick={onClick} className={className}></a>;
 };
 
 export default ToggleButton;
