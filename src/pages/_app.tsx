@@ -8,10 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" />
       </Head>
       <Component {...pageProps} />
       <Script src="https://kit.fontawesome.com/fbadad80a0.js" />

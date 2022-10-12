@@ -1,0 +1,41 @@
+@import '../variables.scss';
+
+.sidebar {
+  margin-top: 0;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  border-right: 1px solid $__light-goose;
+  width: 260px;
+  margin-left: -57.5rem;
+  transition: all 0.2s ease;
+  z-index: 1041;
+  background-color: $__white;
+
+  &__open {
+    @extend .sidebar;
+    margin-left: 0;
+  }
+  &__overlay {
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 60px;
+    left: 0;
+  }
+  &__mini {
+    display: none;
+    @extend .sidebar;
+  }
+  @include mq('lg') {
+    margin-left: 0;
+    &__mini {
+      display: block;
+      width: 80px;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { Header } from 'src/components/layout';
+import { Header, Layout } from 'src/components/layout';
 
 const Home: NextPage = () => {
-  return <Header />;
+  return <Layout pageTitle="top" title="Product Add" subTitle="Create new product"></Layout>;
 };
 
 export default Home;

@@ -1,15 +1,17 @@
 import { FC, useState } from 'react';
+import { useAtomValue } from 'jotai';
+import { toggleButtonContext, hoverActionContext } from 'src/contexts/layoutContext';
 
 import styles from 'src/styles/atoms/button/toggle.module.scss';
 
 type Props = {
   onClick: () => void;
-  toggle: boolean;
-  active: boolean;
 };
 
 const ToggleButton: FC<Props> = (props) => {
-  const { onClick, toggle, active } = props;
+  const { onClick } = props;
+  const toggle = useAtomValue(toggleButtonContext);
+  const active = useAtomValue(hoverActionContext);
 
   const className = (() => {
     if (toggle) return `${styles.active}`;

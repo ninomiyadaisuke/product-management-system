@@ -11,12 +11,14 @@ type Props = {
 const Logo: FC<Props> = (props) => {
   const { size } = props;
   const path = size === 'l' ? '/logo.png' : '/logo-small.png';
+  const height = size === 'l' ? 42 : 30;
+  const width = size === 'l' ? 140 : 30;
 
   return (
     <div className="header-left active">
       <Link href={'/'}>
         <a className={styles.logo}>
-          <Image src={path} height={size === 'l' ? 42 : 30} width={size === 'l' ? 140 : 30} alt="logo" />
+          <Image src={path} height={height} width={width} alt="logo" priority />
         </a>
       </Link>
     </div>
