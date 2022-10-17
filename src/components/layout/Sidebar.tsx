@@ -1,20 +1,26 @@
-import { FC } from 'react';
+import { FC, useState, useRef } from 'react';
+import Link from 'next/link';
 import Image from 'next/future/image';
 import { useAtom } from 'jotai';
 import { drawerContext, toggleButtonContext, hoverActionContext } from 'src/contexts/layoutContext';
 import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
+import { sidebarMenus } from 'src/lib/data';
 
 import styles from 'src/styles/layout/sidebar.module.scss';
 
 const Sidebar: FC = () => {
-  const [toggle, setToggle] = useAtom(toggleButtonContext);
+  const [arrowDrop, setArrowDrop] = useState(false);
+  const [menuClicked, setMenuClicked] = useState(100);
+  const [toggle] = useAtom(toggleButtonContext);
   const [active, setActive] = useAtom(hoverActionContext);
+  const divRef = useRef<HTMLDivElement>(null);
+  const divNode = divRef.current;
 
   const [drawerToggle, setDrawerToggle] = useAtom(drawerContext);
   const { tablet } = useBreakPoint();
   // タブレットサイズ且つ、ハンバーガーボタンを押した時にoverlayを作動させる。
   const overlay = drawerToggle && tablet ? styles.sidebar__overlay : '';
-  //ToggleButtonを押した時且つ、Logo & Sidebarをホバーしていない時にminiSideにする。
+  //ToggleButtonを押した時且つ、HeaderLogo & Sidebarをホバーしていない時にminiSideにする。
   const hoverSideAction = !toggle && !active && !tablet;
 
   const className = (() => {
@@ -23,96 +29,79 @@ const Sidebar: FC = () => {
     if (!drawerToggle) return styles.sidebar;
   })();
 
+  const dropDownClicked = (id: number) => {
+    if (menuClicked === id && active) {
+      setMenuClicked(100);
+    }
+    if (menuClicked !== id) {
+      setMenuClicked(id);
+    }
+  };
+  const handleClick = () => {
+    divNode?.classList.toggle(styles.active);
+  };
+
   return (
     <>
       <div className={overlay} onClick={() => setDrawerToggle(!drawerToggle)}></div>
-      <div className={className} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
-        <div className="sidebar-inner slimscroll">
-          <div id="sidebar-menu" className="sidebar-menu">
-            {/* <ul>
-              <li>
-                <a href="index.html">
-                  <Image src="/icons/dashboard.svg" alt="Image" width={18} height={18} />
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              <li className="submenu">
-                <a>
-                  <Image src="/icons/product.svg" alt="Image" width={18} height={18} />
-                  <span>Product</span> <span className="menu-arrow"></span>
-                </a>
-                <ul>
-                  <li>
-                    <a href="productlist.html">Product List</a>
+      <div
+        className={className}
+        ref={divRef}
+        onMouseEnter={() => setActive(true)}
+        onMouseLeave={() => setActive(false)}
+      >
+        <ul className={styles.menus}>
+          <li>
+            <Link href={'/'}>
+              <a className={styles.menus__link}>
+                <Image className={styles.menus__icon} src="/icons/dashboard.svg" alt="Image" width={18} height={18} />
+                {active && <span>Dashboard</span>}
+                {toggle && !active && <span>Dashboard</span>}
+              </a>
+            </Link>
+          </li>
+          {sidebarMenus.map((sidebarmenu) => (
+            <li
+              key={sidebarmenu.id}
+              onClick={() => dropDownClicked(sidebarmenu.id)}
+              className={menuClicked === sidebarmenu.id ? styles.menus__sub_open : styles.menus__sub}
+            >
+              <a className={styles.menus__link}>
+                <Image src={sidebarmenu.imagePath} alt={`${sidebarmenu.title}-icon`} width={18} height={18} />
+                {active && (
+                  <>
+                    <span>{sidebarmenu.title}</span>
+                    <span
+                      className={menuClicked === sidebarmenu.id ? styles.menus__arrow_drop : styles.menus__arrow}
+                    ></span>
+                  </>
+                )}
+                {toggle && !active && (
+                  <>
+                    <span>{sidebarmenu.title}</span>
+                    <span
+                      className={menuClicked === sidebarmenu.id ? styles.menus__arrow_drop : styles.menus__arrow}
+                    ></span>
+                  </>
+                )}
+              </a>
+              <ul className={menuClicked === sidebarmenu.id ? styles.menus__dropdown_clicked : styles.menus__dropdown}>
+                {sidebarmenu.menus.map((menu) => (
+                  <li key={menu.link}>
+                    <Link href={menu.path}>
+                      <a>{menu.link}</a>
+                    </Link>
                   </li>
-                  <li>
-                    <a href="addproduct.html">Add Product</a>
-                  </li>
-                  <li>
-                    <a href="categorylist.html">Category List</a>
-                  </li>
-                  <li>
-                    <a href="addcategory.html">Add Category</a>
-                  </li>
-                  <li>
-                    <a href="SubCategorylist.html">Sub Category List</a>
-                  </li>
-                  <li>
-                    <a href="subaddcategory.html">Add Sub Category</a>
-                  </li>
-                  <li>
-                    <a href="barcode.html">Print Barcode</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="submenu">
-                <a>
-                  <Image src="/icons/sales1.svg" alt="Image" width={18} height={18} />
-                  <span>Sales</span> <span className="menu-arrow"></span>
-                </a>
-                <ul>
-                  <li>
-                    <a href="saleslist.html">Sales List</a>
-                  </li>
-                  <li>
-                    <a href="pos.html">POS</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="submenu">
-                <a>
-                  <Image src="/icons/purchase1.svg" alt="Image" width={18} height={18} />
-                  <span>Purchase</span> <span className="menu-arrow"></span>
-                </a>
-                <ul>
-                  <li>
-                    <a href="purchaselist.html">Purchase List</a>
-                  </li>
-                  <li>
-                    <a href="addpurchase.html">Add Purchase</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="submenu">
-                <a>
-                  <Image src="/icons/users1.svg" alt="Image" width={18} height={18} />
-                  <span>People</span> <span className="menu-arrow"></span>
-                </a>
-                <ul>
-                  <li>
-                    <a href="userlist.html">User List</a>
-                  </li>
-                  <li>
-                    <a href="adduser.html">Add User</a>
-                  </li>
-                </ul>
-              </li>
-            </ul> */}
-          </div>
-        </div>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
 };
 
 export default Sidebar;
+
+// onClick={() => dropDownClick(sidebarmenu.id)}
