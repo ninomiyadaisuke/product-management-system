@@ -66,12 +66,12 @@
       justify-content: space-between;
       width: 260px;
       height: 60px;
-      padding: 0 20px;
       z-index: 1;
       border-right: 1px solid $__light-goose;
     }
     &__logo_small {
       width: 80px;
+      justify-content: center;
     }
   }
 }

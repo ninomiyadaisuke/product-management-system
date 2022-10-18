@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 
-export const drawerContext = atom(false);
+export const drawerContext = atom(true);
 
 export const hoverActionContext = atom(true);
 

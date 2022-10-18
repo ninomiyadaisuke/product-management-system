@@ -1,144 +1,184 @@
 @import '../variables.scss';
 
-.sidebar {
-  overflow: hidden;
+.sidebar,
+.sidebar__open,
+.sidebar__mini {
   padding: 2rem 1.4rem;
   position: fixed;
-  top: 60px;
+  top: 6rem;
   left: 0;
   bottom: 0;
   display: flex;
   border-right: 1px solid $__light-goose;
-  width: 260px;
+  width: 26rem;
+  margin-left: 0px;
   margin-left: -57.5rem;
   transition: all 0.2s ease;
   z-index: 1041;
   background-color: $__white;
-
-  &__open {
-    @extend .sidebar;
-    margin-left: 0;
-  }
   &__overlay {
     height: 100%;
     width: 100%;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.6);
     position: fixed;
-    top: 60px;
+    top: 6rem;
     left: 0;
   }
-  &__mini {
-    display: none;
-    @extend .sidebar;
-  }
+
+}
+
+.sidebar__open {
+  margin-left: 0;
+}
+
+.sidebar__mini {
+  display: none;
   @include mq('lg') {
+    display: block;
+    width: 80px;
     margin-left: 0;
-    &__mini {
-      display: block;
-      width: 80px;
-    }
   }
 }
 
-.menus {
-  &__sub,
-  li {
-    cursor: pointer;
-  }
-  &__sub,
-  &__sub_open {
-    overflow-y: hidden;
-    height: 48px;
-  }
-  &__sub_open {
-    overflow: auto;
-    height: auto;
-  }
-  &__link {
-    position: relative;
-    text-decoration: none;
-    width: 232px;
-    display: flex;
-    align-items: center;
-    padding: 1.5rem 1.5rem;
-    span {
-      color: $__sandstone;
-      font-size: 1.5rem;
-      margin-left: 1.4rem;
-    }
-    &:hover {
-      background-color: $__violets;
-      border-radius: 5px;
-      span {
-        color: $__white;
-      }
-      img {
-        filter: brightness(0) invert(1);
-      }
-    }
-  }
-  &__arrow,
-  &__arrow_drop {
-    display: inline-block;
-    text-rendering: auto;
-    line-height: 1.8rem;
-    font-size: 1.8rem;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    transition: all 0.2s ease;
-    &::before {
-      content: '\f105';
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free';
-    }
-    &_drop {
-      transform: rotate(90deg);
-    }
-  }
+// .sidebar {
+//   overflow: hidden;
+//   padding: 2rem 1.4rem;
+//   position: fixed;
+//   top: 60px;
+//   left: 0;
+//   bottom: 0;
+//   display: flex;
+//   border-right: 1px solid $__light-goose;
+//   width: 260px;
+//   margin-left: -57.5rem;
+//   transition: all 0.2s ease;
+//   z-index: 1041;
+//   background-color: $__white;
 
-  li {
-  }
+//   &__open {
+//     @extend .sidebar;
+//     margin-left: 0;
+//   }
+//   &__overlay {
+//     height: 100%;
+//     width: 100%;
+//     z-index: 99;
+//     background-color: rgba(0, 0, 0, 0.6);
+//     position: fixed;
+//     top: 60px;
+//     left: 0;
+//   }
+//   &__mini {
+//     display: none;
+//     @extend .sidebar;
+//   }
+//   @include mq('lg') {
+//     margin-left: 0;
+//     &__mini {
+//       display: block;
+//       width: 80px;
+//     }
+//   }
+// }
 
-  &__dropdown,
-  &__dropdown_clicked {
-    width: 232px;
-    padding: 1rem 0;
-    background: $__light__vampires;
-    border-radius: 0.5rem;
-    transform: scaleY(0);
-    transition: all 0.2s ease;
-    transform-origin: top;
-    a {
-      display: block;
-      padding: 0.8rem 0.8rem 0.8rem 4.2rem;
-      font-size: 1.4rem;
-      text-decoration: none;
-      color: $__dark__ash__grays;
-      line-height: 1.6rem;
-      position: relative;
-      &::after {
-        content: '';
-        border: 1px solid #a1a1a1;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        position: absolute;
-        top: 1.2rem;
-        left: 16px;
-      }
-      &:hover {
-        color: $__primarycolor;
-        &::after {
-          background: $__primarycolor;
-          border: 1px solid $__primarycolor;
-        }
-      }
-    }
-  }
-  &__dropdown_clicked {
-    transform: scaleY(1);
-  }
-}
+// .menus {
+//   &__sub,
+//   li {
+//     cursor: pointer;
+//   }
+//   &__sub,
+//   &__sub_open {
+//     overflow-y: hidden;
+//     height: 48px;
+//   }
+//   &__sub_open {
+//     overflow: auto;
+//     height: auto;
+//   }
+//   &__link {
+//     position: relative;
+//     text-decoration: none;
+//     width: 232px;
+//     display: flex;
+//     align-items: center;
+//     padding: 1.5rem 1.5rem;
+//     span {
+//       color: $__sandstone;
+//       font-size: 1.5rem;
+//       margin-left: 1.4rem;
+//     }
+//     &:hover {
+//       background-color: $__violets;
+//       border-radius: 5px;
+//       span {
+//         color: $__white;
+//       }
+//       img {
+//         filter: brightness(0) invert(1);
+//       }
+//     }
+//   }
+//   &__arrow,
+//   &__arrow_drop {
+//     display: inline-block;
+//     text-rendering: auto;
+//     line-height: 1.8rem;
+//     font-size: 1.8rem;
+//     position: absolute;
+//     top: 1.5rem;
+//     right: 1.5rem;
+//     transition: all 0.2s ease;
+//     &::before {
+//       content: '\f105';
+//       font-weight: 900;
+//       font-family: 'Font Awesome 5 Free';
+//     }
+//     &_drop {
+//       transform: rotate(90deg);
+//     }
+//   }
 
+//   li {
+//   }
+
+//   &__dropdown,
+//   &__dropdown_clicked {
+//     width: 232px;
+//     padding: 1rem 0;
+//     background: $__light__vampires;
+//     border-radius: 0.5rem;
+//     transform: scaleY(0);
+//     transition: all 0.2s ease;
+//     transform-origin: top;
+//     a {
+//       display: block;
+//       padding: 0.8rem 0.8rem 0.8rem 4.2rem;
+//       font-size: 1.4rem;
+//       text-decoration: none;
+//       color: $__dark__ash__grays;
+//       line-height: 1.6rem;
+//       position: relative;
+//       &::after {
+//         content: '';
+//         border: 1px solid #a1a1a1;
+//         width: 1rem;
+//         height: 1rem;
+//         border-radius: 50%;
+//         position: absolute;
+//         top: 1.2rem;
+//         left: 16px;
+//       }
+//       &:hover {
+//         color: $__primarycolor;
+//         &::after {
+//           background: $__primarycolor;
+//           border: 1px solid $__primarycolor;
+//         }
+//       }
+//     }
+//   }
+//   &__dropdown_clicked {
+//     transform: scaleY(1);
+//   }
+// }

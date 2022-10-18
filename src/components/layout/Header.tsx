@@ -1,35 +1,30 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
+import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
 import { useLayout } from 'src/components/hooks/useLayout';
 import { Logo } from 'src/components/atoms/images';
 import { HamburgerButton, ToggleButton } from 'src/components/atoms/button';
 import { NavSearch } from 'src/components/atoms/input';
-import { useBreakPoint } from 'src/components/hooks/useBreakPoint';
 
 import styles from 'src/styles/layout/header.module.scss';
 
 const Header: FC = () => {
-  const { toggleButtonClicked, setToggleButtonClicked, miniSideActive, setMiniSideActive, hoverEvent, unHoverEvent } =
-    useLayout();
-
+  const { toggleButtonClicked, miniSideActive, hoverEvent, unHoverEvent } = useLayout();
   const { tablet } = useBreakPoint();
 
-  const handleClick = useCallback(() => {
-    setToggleButtonClicked((prev) => !prev);
-  }, [setToggleButtonClicked]);
-
-  const logoSizeChecked = !toggleButtonClicked && !miniSideActive && !tablet ? 's' : 'l';
+  const logoSizeChecked = !toggleButtonClicked && miniSideActive && !tablet;
 
   const className = (() => {
-    if (!miniSideActive && !toggleButtonClicked && tablet) return styles.header__logo;
-    if (!miniSideActive && !toggleButtonClicked) return styles.header__logo_small;
+    if (toggleButtonClicked && !tablet) return styles.header__logo;
+    if (!toggleButtonClicked && tablet) return styles.header__logo;
+    if (miniSideActive && !toggleButtonClicked) return styles.header__logo_small;
     return styles.header__logo;
   })();
 
   return (
     <header className={styles.header}>
       <div onMouseEnter={hoverEvent} onMouseLeave={unHoverEvent} className={className}>
-        <Logo size={logoSizeChecked} />
-        <ToggleButton onClick={handleClick} />
+        <Logo size={logoSizeChecked ? 's' : 'l'} />
+        <ToggleButton />
       </div>
       <div className={styles.header__hamburger}>
         <HamburgerButton />

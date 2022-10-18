@@ -4,15 +4,17 @@ import { toggleButtonContext, hoverActionContext, drawerContext } from 'src/cont
 
 export const useLayout = () => {
   const [toggleButtonClicked, setToggleButtonClicked] = useAtom(toggleButtonContext);
+
   const [miniSideActive, setMiniSideActive] = useAtom(hoverActionContext);
+
   const [drawerToggle, setDrawerToggle] = useAtom(drawerContext);
 
   const hoverEvent = useCallback(() => {
-    setMiniSideActive(true);
+    setMiniSideActive(false);
   }, [setMiniSideActive]);
 
   const unHoverEvent = useCallback(() => {
-    setMiniSideActive(false);
+    setMiniSideActive(true);
   }, [setMiniSideActive]);
 
   return {
