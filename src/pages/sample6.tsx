@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import { Layout } from 'src/components/layout';
 
-const Home: NextPage = () => {
+const sample6: NextPage = () => {
   return (
-    <Layout pageTitle="top" title="Dashboard" subTitle="dashboard">
+    <Layout pageTitle="top" title="sample6" subTitle="sample6">
       <div></div>
     </Layout>
   );
 };
 
-export default Home;
+export default sample6;

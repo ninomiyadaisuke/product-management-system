@@ -3,7 +3,7 @@
 .sidebar,
 .sidebar__open,
 .sidebar__mini {
-  padding: 2rem 1.4rem;
+  padding: 2rem;
   position: fixed;
   top: 6rem;
   left: 0;
@@ -25,19 +25,59 @@
     top: 6rem;
     left: 0;
   }
-
 }
-
 .sidebar__open {
   margin-left: 0;
 }
-
 .sidebar__mini {
   display: none;
   @include mq('lg') {
     display: block;
     width: 80px;
     margin-left: 0;
+  }
+}
+
+.menus,
+.menus__mini {
+  &__link,&__accordion {
+    position: relative;
+    text-decoration: none;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    span {
+      color: $__sandstone;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+    }
+    &:hover {
+      background-color: $__violets;
+      border-radius: 5px;
+      span {
+        color: $__white;
+      }
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
+
+.menus__mini {
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  span {
+    display: none;
+  }
+  &_active {
+    @extend .menus__mini;
+    background-color: $__violets;
+    img {
+      filter: brightness(0) invert(1);
+    }
   }
 }
 

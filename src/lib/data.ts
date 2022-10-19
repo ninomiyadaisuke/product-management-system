@@ -4,13 +4,13 @@ export const sidebarMenus = [
     imagePath: '/icons/product.svg',
     title: 'Product',
     menus: [
-      { path: '/', link: 'Product List' },
-      { path: '/', link: 'Add Product' },
-      { path: '/', link: 'Category List' },
-      { path: '/', link: 'Add Category' },
-      { path: '/', link: 'Sub Category List' },
-      { path: '/', link: 'Add Sub Category' },
-      { path: '/', link: 'Print Barcode' },
+      { path: '/sample1', link: 'Product List' },
+      { path: '/sample2', link: 'Add Product' },
+      { path: '/sample3', link: 'Category List' },
+      { path: '/sample4', link: 'Add Category' },
+      { path: '/sample5', link: 'Sub Category List' },
+      { path: '/sample6', link: 'Add Sub Category' },
+      { path: '/sample7', link: 'Print Barcode' },
     ],
   },
   {
@@ -18,8 +18,8 @@ export const sidebarMenus = [
     imagePath: '/icons/sales1.svg',
     title: 'Sales',
     menus: [
-      { path: '/', link: 'Sales List' },
-      { path: '/', link: 'POS' },
+      { path: '/sample8', link: 'Sales List' },
+      { path: '/sample9', link: 'POS' },
     ],
   },
   {
@@ -27,8 +27,8 @@ export const sidebarMenus = [
     imagePath: '/icons/purchase1.svg',
     title: 'Purchase',
     menus: [
-      { path: '/', link: 'Purchase List' },
-      { path: '/', link: 'Add Purchase' },
+      { path: '/sample10', link: 'Purchase List' },
+      { path: '/sample11', link: 'Add Purchase' },
     ],
   },
   {
@@ -36,8 +36,8 @@ export const sidebarMenus = [
     imagePath: '/icons/users1.svg',
     title: 'People',
     menus: [
-      { path: '/', link: 'User List' },
-      { path: '/', link: 'Add User' },
+      { path: '/sample12', link: 'User List' },
+      { path: '/sample13', link: 'Add User' },
     ],
   },
 ];

@@ -24,10 +24,45 @@ const Sidebar: FC = () => {
     return styles.sidebar__open;
   })();
 
+  const dashboardClassName = (() => {
+    if (hoverSideAction && pathname === '/') return styles.menus__mini_active;
+    if (hoverSideAction && pathname !== '/') return styles.menus__mini;
+    return styles.menus__link;
+  })();
+
   return (
     <>
       <div className={overlayClassName} onClick={() => setDrawerToggle((prev) => !prev)} />
-      <div onMouseEnter={hoverEvent} onMouseLeave={unHoverEvent} className={sidebarClassName}></div>
+      <div onMouseEnter={hoverEvent} onMouseLeave={unHoverEvent} className={sidebarClassName}>
+        <ul className={styles.menus}>
+          <li>
+            <Link href={'/'}>
+              <a className={dashboardClassName}>
+                <Image className={styles.menus__icon} src="/icons/dashboard.svg" alt="Image" width={18} height={18} />
+                <span>Dashboard</span>
+              </a>
+            </Link>
+          </li>
+          {sidebarMenus.map((sidebarmenu) => (
+            <li key={sidebarmenu.id}>
+              <a>
+                <Image src={sidebarmenu.imagePath} alt={`${sidebarmenu.title}-icon`} width={18} height={18} />
+                <span>{sidebarmenu.title}</span>
+                <span></span>
+              </a>
+              {/* <ul>
+                {sidebarmenu.menus.map((menu) => (
+                  <li key={menu.link}>
+                    <Link href={menu.path}>
+                      <a>{menu.link}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul> */}
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
