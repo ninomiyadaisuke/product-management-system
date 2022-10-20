@@ -11,10 +11,11 @@ type Props = {
   pageTitle: string;
   title?: string;
   subTitle?: string;
+  linksTitle: string;
 };
 
 const Layout: FC<Props> = (props) => {
-  const { children, title, subTitle, pageTitle } = props;
+  const { children, title, subTitle, pageTitle, linksTitle } = props;
 
   const toggle = useAtomValue(toggleButtonContext);
 
@@ -24,7 +25,7 @@ const Layout: FC<Props> = (props) => {
         <title>{pageTitle}</title>
       </Head>
       <Header />
-      <Sidebar />
+      <Sidebar linksTitle={linksTitle} />
       <main className={toggle ? styles.layout : styles.active}>
         <div className={styles.layout__content}>
           {title && subTitle && (

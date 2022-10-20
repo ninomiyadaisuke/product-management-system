@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
     "bootstrap": "^5.2.2",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "html-react-parser": "^3.0.4",
@@ -24,7 +25,9 @@
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "use-breakpoint": "^3.0.3"
+    "react-hook-form": "^7.37.0",
+    "use-breakpoint": "^3.0.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "18.8.2",
