@@ -22,22 +22,22 @@ export const sidebarMenus = [
       { path: '/sample9', link: 'POS' },
     ],
   },
-  {
-    id: 3,
-    imagePath: '/icons/purchase1.svg',
-    title: 'Purchase',
-    menus: [
-      { path: '/sample10', link: 'Purchase List' },
-      { path: '/sample11', link: 'Add Purchase' },
-    ],
-  },
-  {
-    id: 4,
-    imagePath: '/icons/users1.svg',
-    title: 'People',
-    menus: [
-      { path: '/sample12', link: 'User List' },
-      { path: '/sample13', link: 'Add User' },
-    ],
-  },
+  // {
+  //   id: 3,
+  //   imagePath: '/icons/purchase1.svg',
+  //   title: 'Purchase',
+  //   menus: [
+  //     { path: '/sample10', link: 'Purchase List' },
+  //     { path: '/sample11', link: 'Add Purchase' },
+  //   ],
+  // },
+  // {
+  //   id: 4,
+  //   imagePath: '/icons/users1.svg',
+  //   title: 'People',
+  //   menus: [
+  //     { path: '/sample12', link: 'User List' },
+  //     { path: '/sample13', link: 'Add User' },
+  //   ],
+  // },
 ];

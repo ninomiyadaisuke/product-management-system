@@ -3,7 +3,7 @@ import { Layout } from 'src/components/layout';
 
 const sample7: NextPage = () => {
   return (
-    <Layout pageTitle="top" title="sample7" subTitle="sample7">
+    <Layout linksTitle="Product" pageTitle="top" title="sample7" subTitle="sample7">
       <div></div>
     </Layout>
   );
